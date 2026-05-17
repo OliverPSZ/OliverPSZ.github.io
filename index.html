@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oliver Pineda Suárez | Aerospace Engineer</title>
+
+  <title>Oliver Pineda Suárez | Space Systems & Robotics Engineer</title>
+
   <style>
     :root {
-      --bg: #08090d;
-      --card: rgba(255, 255, 255, 0.06);
-      --card-border: rgba(255, 255, 255, 0.12);
-      --text: #f4f4f5;
-      --muted: #a1a1aa;
-      --accent: #8b5cf6;
-      --accent-2: #06b6d4;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --bg: #02040d;
+      --bg-2: #071326;
+      --card: rgba(255, 255, 255, 0.065);
+      --card-strong: rgba(255, 255, 255, 0.095);
+      --card-border: rgba(170, 215, 255, 0.18);
+      --text: #f7fbff;
+      --muted: #a8b7cc;
+      --accent: #7c3aed;
+      --accent-2: #22d3ee;
+      --accent-3: #60a5fa;
+      --signal: #cffafe;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
     }
 
     * {
@@ -28,13 +34,55 @@
 
     body {
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(139, 92, 246, 0.22), transparent 35%),
-        radial-gradient(circle at top right, rgba(6, 182, 212, 0.16), transparent 30%),
-        var(--bg);
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(124, 58, 237, 0.28), transparent 30%),
+        radial-gradient(circle at 82% 8%, rgba(34, 211, 238, 0.22), transparent 28%),
+        radial-gradient(circle at 55% 85%, rgba(96, 165, 250, 0.15), transparent 35%),
+        linear-gradient(180deg, #02040d 0%, #071326 50%, #02030a 100%);
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    body::before {
+      z-index: -4;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.9) 1px, transparent 1.7px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.45) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(34, 211, 238, 0.7) 1px, transparent 1.6px);
+      background-size: 88px 88px, 150px 150px, 240px 240px;
+      background-position: 0 0, 40px 70px, 100px 130px;
+      opacity: 0.38;
+      animation: driftStars 85s linear infinite;
+    }
+
+    body::after {
+      z-index: -3;
+      background:
+        linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+      width: 140%;
+      height: 140%;
+      transform: translate(-18%, -18%) rotate(-12deg);
+      opacity: 0.44;
+    }
+
+    @keyframes driftStars {
+      from {
+        background-position: 0 0, 40px 70px, 100px 130px;
+      }
+
+      to {
+        background-position: 420px 280px, 560px 410px, 700px 520px;
+      }
     }
 
     a {
@@ -50,10 +98,10 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
       backdrop-filter: blur(18px);
-      background: rgba(8, 9, 13, 0.72);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(2, 4, 13, 0.78);
+      border-bottom: 1px solid rgba(170, 215, 255, 0.1);
     }
 
     nav {
@@ -64,31 +112,67 @@
     }
 
     .logo {
-      font-weight: 800;
+      font-weight: 850;
       letter-spacing: -0.04em;
       font-size: 1.15rem;
     }
 
     .logo span {
-      color: var(--accent);
+      color: var(--accent-2);
+      text-shadow: 0 0 18px rgba(34, 211, 238, 0.5);
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.35rem;
       color: var(--muted);
       font-size: 0.95rem;
     }
 
+    .nav-links a {
+      transition: 0.2s ease;
+    }
+
     .nav-links a:hover {
       color: var(--text);
+      text-shadow: 0 0 16px rgba(34, 211, 238, 0.45);
     }
 
     .hero {
       min-height: 88vh;
       display: grid;
       place-items: center;
-      padding: 5rem 0;
+      padding: 5.5rem 0;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 620px;
+      height: 620px;
+      right: -250px;
+      top: 80px;
+      border: 1px solid rgba(34, 211, 238, 0.15);
+      border-radius: 50%;
+      box-shadow:
+        inset 0 0 80px rgba(34, 211, 238, 0.06),
+        0 0 80px rgba(34, 211, 238, 0.08);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 820px;
+      height: 220px;
+      right: -260px;
+      top: 260px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+      transform: rotate(-18deg);
+      opacity: 0.45;
+      pointer-events: none;
     }
 
     .hero-grid {
@@ -96,19 +180,22 @@
       grid-template-columns: 1.2fr 0.8fr;
       gap: 3rem;
       align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      color: var(--accent-2);
-      background: rgba(6, 182, 212, 0.1);
-      border: 1px solid rgba(6, 182, 212, 0.18);
-      padding: 0.45rem 0.8rem;
+      gap: 0.55rem;
+      color: #cffafe;
+      background: rgba(34, 211, 238, 0.085);
+      border: 1px solid rgba(34, 211, 238, 0.24);
+      padding: 0.48rem 0.85rem;
       border-radius: 999px;
       font-size: 0.9rem;
       margin-bottom: 1.4rem;
+      box-shadow: 0 0 28px rgba(34, 211, 238, 0.1);
     }
 
     .dot {
@@ -117,25 +204,39 @@
       background: var(--accent-2);
       border-radius: 50%;
       box-shadow: 0 0 20px var(--accent-2);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.55;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.25);
+      }
     }
 
     h1 {
       font-size: clamp(3rem, 8vw, 6rem);
-      line-height: 0.95;
-      letter-spacing: -0.07em;
+      line-height: 0.94;
+      letter-spacing: -0.075em;
       margin-bottom: 1.4rem;
     }
 
     h1 span {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      background: linear-gradient(135deg, #ffffff, var(--accent-2), var(--accent));
       -webkit-background-clip: text;
       color: transparent;
+      text-shadow: 0 0 34px rgba(34, 211, 238, 0.12);
     }
 
     .hero p {
       color: var(--muted);
       font-size: 1.12rem;
-      max-width: 620px;
+      max-width: 650px;
       margin-bottom: 2rem;
     }
 
@@ -149,27 +250,30 @@
       padding: 0.9rem 1.15rem;
       border-radius: 14px;
       border: 1px solid var(--card-border);
-      background: var(--card);
+      background: rgba(255, 255, 255, 0.055);
       color: var(--text);
-      font-weight: 700;
+      font-weight: 750;
       transition: 0.2s ease;
     }
 
     .btn.primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      background: linear-gradient(135deg, #2563eb, var(--accent-2), var(--accent));
       border: none;
       color: white;
-      box-shadow: 0 10px 35px rgba(139, 92, 246, 0.28);
+      box-shadow: 0 12px 38px rgba(34, 211, 238, 0.24);
     }
 
     .btn:hover {
       transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(34, 211, 238, 0.14);
     }
 
     .profile-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035));
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.095), rgba(255,255,255,0.035)),
+        rgba(7, 19, 38, 0.78);
       border: 1px solid var(--card-border);
-      border-radius: 28px;
+      border-radius: 30px;
       padding: 1.4rem;
       box-shadow: var(--shadow);
       position: relative;
@@ -180,9 +284,91 @@
       content: "";
       position: absolute;
       inset: -80px;
-      background: conic-gradient(from 180deg, transparent, rgba(139, 92, 246, 0.18), transparent, rgba(6, 182, 212, 0.16), transparent);
-      animation: spin 10s linear infinite;
+      background: conic-gradient(
+        from 180deg,
+        transparent,
+        rgba(34, 211, 238, 0.22),
+        transparent,
+        rgba(124, 58, 237, 0.2),
+        transparent
+      );
+      animation: spin 14s linear infinite;
       z-index: -1;
+    }
+
+    .orbit-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .orbit-wrap::before {
+      content: "";
+      position: absolute;
+      width: 86%;
+      aspect-ratio: 1;
+      left: 7%;
+      top: 4%;
+      border: 1px solid rgba(34, 211, 238, 0.34);
+      border-radius: 50%;
+      transform: rotate(-20deg);
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.7;
+    }
+
+    .satellite-orbit {
+      position: absolute;
+      width: 86%;
+      aspect-ratio: 1;
+      left: 7%;
+      top: 4%;
+      border-radius: 50%;
+      animation: orbit 9s linear infinite;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .satellite {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      width: 32px;
+      height: 20px;
+      transform: translateX(-50%) rotate(25deg);
+      filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.8));
+    }
+
+    .satellite::before {
+      content: "";
+      position: absolute;
+      inset: 5px 10px;
+      background: #e0f2fe;
+      border-radius: 4px;
+    }
+
+    .satellite::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 32px;
+      height: 8px;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(34,211,238,0.95) 0 8px,
+          transparent 8px 12px,
+          rgba(34,211,238,0.95) 12px 20px,
+          transparent 20px 24px,
+          rgba(34,211,238,0.95) 24px 32px
+        );
+      border-radius: 2px;
+    }
+
+    @keyframes orbit {
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     @keyframes spin {
@@ -194,36 +380,158 @@
     .avatar {
       width: 100%;
       aspect-ratio: 1;
-      border-radius: 22px;
-      background:
-        linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(6, 182, 212, 0.2)),
-        url("https://github.com/OliverPSZ.png") center/cover; 
+      border-radius: 24px;
       margin-bottom: 1rem;
+      background:
+        linear-gradient(135deg, rgba(3, 6, 17, 0.1), rgba(34, 211, 238, 0.12)),
+        url("https://github.com/OliverPSZ.png") center/cover no-repeat;
+      border: 1px solid rgba(190, 225, 255, 0.2);
+      box-shadow:
+        inset 0 0 52px rgba(0, 0, 0, 0.38),
+        0 0 36px rgba(34, 211, 238, 0.16);
+      position: relative;
+      z-index: 1;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+      margin: 1rem 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .status {
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(170, 215, 255, 0.12);
+      border-radius: 16px;
+      padding: 0.75rem;
+    }
+
+    .status strong {
+      display: block;
+      font-size: 0.8rem;
+      color: #cffafe;
+      margin-bottom: 0.2rem;
+    }
+
+    .status span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.35;
     }
 
     .profile-card h2 {
       letter-spacing: -0.04em;
       margin-bottom: 0.35rem;
+      position: relative;
+      z-index: 1;
     }
 
     .profile-card p {
       color: var(--muted);
       font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .observatory-panel {
+      margin-top: 1.3rem;
+      padding: 0.75rem;
+      border: 1px solid rgba(170, 215, 255, 0.14);
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 75% 28%, rgba(34, 211, 238, 0.16), transparent 30%),
+        radial-gradient(circle at 22% 74%, rgba(124, 58, 237, 0.12), transparent 36%),
+        rgba(255, 255, 255, 0.04);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .observatory-panel svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .observatory-star {
+      fill: #cffafe;
+      filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.9));
+      animation: twinkle 2.4s ease-in-out infinite;
+    }
+
+    .star-two {
+      animation-delay: 0.7s;
+    }
+
+    .star-three {
+      animation-delay: 1.3s;
+    }
+
+    .star-four {
+      animation-delay: 1.8s;
+    }
+
+    .observatory-beam {
+      animation: sweepSky 5.5s ease-in-out infinite;
+      transform-origin: 210px 62px;
+    }
+
+    .observatory-dome {
+      animation: domeGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.45;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.35);
+      }
+    }
+
+    @keyframes sweepSky {
+      0%, 100% {
+        opacity: 0.4;
+        transform: rotate(-3deg);
+      }
+
+      50% {
+        opacity: 1;
+        transform: rotate(3deg);
+      }
+    }
+
+    @keyframes domeGlow {
+      0%, 100% {
+        filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.2));
+      }
+
+      50% {
+        filter: drop-shadow(0 0 18px rgba(34, 211, 238, 0.55));
+      }
     }
 
     section {
       padding: 5rem 0;
+      position: relative;
     }
 
     .section-title {
       font-size: clamp(2rem, 5vw, 3.5rem);
-      letter-spacing: -0.06em;
+      letter-spacing: -0.065em;
       margin-bottom: 1rem;
     }
 
     .section-copy {
       color: var(--muted);
-      max-width: 640px;
+      max-width: 720px;
       margin-bottom: 2rem;
     }
 
@@ -234,26 +542,57 @@
     }
 
     .card {
-      background: var(--card);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035));
       border: 1px solid var(--card-border);
-      border-radius: 22px;
-      padding: 1.3rem;
+      border-radius: 24px;
+      padding: 1.35rem;
       transition: 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      min-height: 210px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      right: -46px;
+      top: -46px;
+      border: 1px solid rgba(34, 211, 238, 0.15);
+      border-radius: 50%;
+      box-shadow: inset 0 0 30px rgba(34, 211, 238, 0.06);
     }
 
     .card:hover {
       transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.085);
+      background: rgba(255, 255, 255, 0.088);
+      border-color: rgba(34, 211, 238, 0.34);
     }
 
     .card h3 {
       margin-bottom: 0.5rem;
       letter-spacing: -0.03em;
+      position: relative;
+      z-index: 1;
     }
 
     .card p {
       color: var(--muted);
       font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card .meta {
+      color: #cffafe;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+      position: relative;
+      z-index: 1;
     }
 
     .tag-row {
@@ -261,32 +600,133 @@
       flex-wrap: wrap;
       gap: 0.5rem;
       margin-top: 1rem;
+      position: relative;
+      z-index: 1;
     }
 
     .tag {
       font-size: 0.78rem;
-      color: #ddd6fe;
-      background: rgba(139, 92, 246, 0.14);
-      border: 1px solid rgba(139, 92, 246, 0.22);
+      color: #cffafe;
+      background: rgba(34, 211, 238, 0.105);
+      border: 1px solid rgba(34, 211, 238, 0.23);
       padding: 0.3rem 0.55rem;
       border-radius: 999px;
+    }
+
+    .mission-log {
+      display: grid;
+      gap: 1rem;
+      counter-reset: log;
+    }
+
+    .log-entry {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(170, 215, 255, 0.14);
+      border-radius: 24px;
+      padding: 1.15rem;
+      position: relative;
+      overflow: hidden;
+      counter-increment: log;
+    }
+
+    .log-entry::before {
+      content: "LOG " counter(log, decimal-leading-zero);
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      color: rgba(207, 250, 254, 0.2);
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+    }
+
+    .log-date {
+      color: #cffafe;
+      font-weight: 750;
+      font-size: 0.9rem;
+    }
+
+    .log-entry h3 {
+      letter-spacing: -0.03em;
+      margin-bottom: 0.35rem;
+    }
+
+    .log-entry p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .coordinates {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .coordinate-card {
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .coordinate-card small {
+      color: #cffafe;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 800;
+      position: relative;
+      z-index: 1;
+    }
+
+    .coordinate-card span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      position: relative;
+      z-index: 1;
     }
 
     .contact {
       text-align: center;
       padding: 5rem 2rem;
-      border-radius: 32px;
+      border-radius: 34px;
       background:
-        linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(6, 182, 212, 0.12)),
-        var(--card);
+        radial-gradient(circle at top, rgba(34, 211, 238, 0.16), transparent 34%),
+        radial-gradient(circle at bottom left, rgba(124, 58, 237, 0.18), transparent 36%),
+        rgba(255, 255, 255, 0.05);
       border: 1px solid var(--card-border);
       box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: "";
+      position: absolute;
+      width: 470px;
+      height: 170px;
+      left: 50%;
+      top: -64px;
+      transform: translateX(-50%) rotate(-8deg);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 50%;
+      opacity: 0.38;
     }
 
     .contact p {
       color: var(--muted);
       margin: 1rem auto 2rem;
-      max-width: 560px;
+      max-width: 620px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact h2,
+    .contact .buttons {
+      position: relative;
+      z-index: 1;
     }
 
     footer {
@@ -296,30 +736,46 @@
       font-size: 0.9rem;
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 950px) {
       .hero-grid,
-      .grid {
+      .grid,
+      .log-entry,
+      .coordinates {
         grid-template-columns: 1fr;
       }
 
       .profile-card {
-        max-width: 420px;
+        max-width: 440px;
       }
 
       .nav-links {
         display: none;
       }
+
+      .hero::before {
+        width: 380px;
+        height: 380px;
+        right: -190px;
+      }
+
+      .hero::after {
+        width: 520px;
+        right: -240px;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav class="container">
       <a href="#" class="logo">Oliver<span>PSZ</span></a>
 
       <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#stack">Stack</a>
+        <a href="#missions">Missions</a>
+        <a href="#systems">Systems</a>
+        <a href="#mission-log">Mission Log</a>
+        <a href="#coordinates">Coordinates</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -331,100 +787,333 @@
         <div>
           <div class="eyebrow">
             <span class="dot"></span>
-            Available for new projects
+            Astronomy · Robotics · Space Systems
           </div>
 
-          <h1>Building clean, fast, modern <span>web experiences.</span></h1>
+          <h1>Building intelligent systems for <span>space and science.</span></h1>
 
           <p>
-            I’m a developer focused on crafting elegant interfaces, useful tools,
-            and open-source projects that feel as good as they look.
+            I’m a Robotics PhD Candidate at EPFL working at the intersection of astronomy,
+            robotic systems, spacecraft engineering, automation, digital twins, and
+            data-driven space technologies.
           </p>
 
           <div class="buttons">
-            <a class="btn primary" href="https://github.com/OliverPSZ" target="_blank">
+            <a class="btn primary" href="Oliver_Pineda_Suarez_CV.pdf" download>
+              Download CV
+            </a>
+
+            <a class="btn" href="https://github.com/OliverPSZ" target="_blank" rel="noopener noreferrer">
               View GitHub
             </a>
-            <a class="btn" href="#projects">
-              See Projects
+
+            <a class="btn" href="#missions">
+              Explore Missions
             </a>
           </div>
         </div>
 
         <aside class="profile-card">
-          <div class="avatar"></div>
+          <div class="orbit-wrap">
+            <div class="satellite-orbit">
+              <div class="satellite"></div>
+            </div>
+
+            <div class="avatar"></div>
+          </div>
+
           <h2>Oliver Pineda Suárez</h2>
-          <p>@OliverPSZ</p>
-          <p style="margin-top: 1rem;">
-            Frontend developer, creative coder, and builder of minimal, high-impact software.
+          <p>@OliverPSZ · EPFL Astrobots / LASTRO</p>
+
+          <div class="status-grid">
+            <div class="status">
+              <strong>Current Orbit</strong>
+              <span>Robotics PhD Candidate</span>
+            </div>
+
+            <div class="status">
+              <strong>Focus</strong>
+              <span>Astronomy & Space Systems</span>
+            </div>
+
+            <div class="status">
+              <strong>Toolkit</strong>
+              <span>Python · C/C++ · LabVIEW</span>
+            </div>
+
+            <div class="status">
+              <strong>Systems</strong>
+              <span>Digital Twins · MBSE · Automation</span>
+            </div>
+          </div>
+
+          <p>
+            Space technologies engineer focused on robotics, digitalization,
+            spacecraft development, and scientific software systems.
           </p>
+
+          <div class="observatory-panel" aria-label="Animated observatory illustration">
+            <svg viewBox="0 0 420 180" role="img">
+              <defs>
+                <linearGradient id="domeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#e0f2fe" />
+                  <stop offset="45%" stop-color="#22d3ee" />
+                  <stop offset="100%" stop-color="#7c3aed" />
+                </linearGradient>
+              </defs>
+
+              <circle class="observatory-star star-one" cx="55" cy="38" r="2.4" />
+              <circle class="observatory-star star-two" cx="355" cy="42" r="2" />
+              <circle class="observatory-star star-three" cx="315" cy="118" r="2.2" />
+              <circle class="observatory-star star-four" cx="105" cy="88" r="1.8" />
+
+              <path
+                class="observatory-beam"
+                d="M210 62 L335 18 L335 92 Z"
+                fill="rgba(34, 211, 238, 0.09)"
+                stroke="rgba(34, 211, 238, 0.16)"
+              />
+
+              <g class="observatory-dome">
+                <path
+                  d="M105 102 C112 52 308 52 315 102 Z"
+                  fill="url(#domeGradient)"
+                  stroke="rgba(207,250,254,0.55)"
+                  stroke-width="2"
+                />
+                <path
+                  d="M202 59 C216 67 222 82 218 102 L186 102 C184 82 189 67 202 59 Z"
+                  fill="rgba(2, 6, 23, 0.72)"
+                  stroke="rgba(207,250,254,0.36)"
+                />
+                <path
+                  d="M110 102 L310 102"
+                  stroke="rgba(207,250,254,0.7)"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </g>
+
+              <g class="observatory-base">
+                <rect x="128" y="102" width="164" height="45" rx="8" fill="rgba(207,250,254,0.13)" />
+                <rect x="145" y="112" width="18" height="22" rx="3" fill="rgba(34,211,238,0.28)" />
+                <rect x="180" y="112" width="18" height="22" rx="3" fill="rgba(34,211,238,0.28)" />
+                <rect x="222" y="112" width="18" height="22" rx="3" fill="rgba(34,211,238,0.28)" />
+                <rect x="257" y="112" width="18" height="22" rx="3" fill="rgba(34,211,238,0.28)" />
+                <rect x="112" y="146" width="196" height="12" rx="6" fill="rgba(207,250,254,0.32)" />
+                <rect x="94" y="158" width="232" height="10" rx="5" fill="rgba(124,58,237,0.35)" />
+              </g>
+            </svg>
+          </div>
         </aside>
       </div>
     </section>
 
-    <section id="projects">
+    <section id="missions">
       <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
+        <h2 class="section-title">Featured Missions</h2>
+
         <p class="section-copy">
-          A few projects that show how I think about design, performance, and developer experience.
+          Real public links to research, engineering profiles, source code, and institutional work.
+          Replace or extend these cards as you publish specific papers or repositories.
         </p>
 
         <div class="grid">
-          <a class="card" href="#" target="_blank">
-            <h3>Project One</h3>
-            <p>A fast, responsive web app built with modern frontend tooling.</p>
+          <a class="card" href="https://people.epfl.ch/oliver.pinedasuarez?lang=en" target="_blank" rel="noopener noreferrer">
+            <div class="meta">EPFL · LASTRO</div>
+            <h3>Astrobots & Robotic Astronomy</h3>
+            <p>
+              Doctoral work connected to robotics, control, intelligent systems,
+              and EPFL’s Laboratory of Astrophysics.
+            </p>
+
             <div class="tag-row">
-              <span class="tag">React</span>
-              <span class="tag">API</span>
-              <span class="tag">UI</span>
+              <span class="tag">EPFL</span>
+              <span class="tag">Robotics</span>
+              <span class="tag">Astronomy</span>
             </div>
           </a>
 
-          <a class="card" href="#" target="_blank">
-            <h3>Project Two</h3>
-            <p>A design-focused tool with smooth interactions and clean architecture.</p>
-            <div class="tag-row">
-              <span class="tag">TypeScript</span>
-              <span class="tag">Design</span>
-              <span class="tag">UX</span>
-            </div>
-          </a>
+          <a class="card" href="https://github.com/OliverPSZ" target="_blank" rel="noopener noreferrer">
+            <div class="meta">GitHub · Code</div>
+            <h3>Engineering & Software Projects</h3>
+            <p>
+              Public code, experiments, technical tools, and software work across
+              space systems, automation, data, and engineering.
+            </p>
 
-          <a class="card" href="#" target="_blank">
-            <h3>Project Three</h3>
-            <p>An open-source experiment exploring automation, data, or creative coding.</p>
             <div class="tag-row">
-              <span class="tag">Open Source</span>
-              <span class="tag">Tools</span>
               <span class="tag">GitHub</span>
+              <span class="tag">Python</span>
+              <span class="tag">Tools</span>
+            </div>
+          </a>
+
+          <a class="card" href="https://lastro.epfl.ch/" target="_blank" rel="noopener noreferrer">
+            <div class="meta">EPFL · Laboratory</div>
+            <h3>Laboratory of Astrophysics</h3>
+            <p>
+              Research environment for astrophysics, astronomical instrumentation,
+              robotic systems, and scientific discovery.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">LASTRO</span>
+              <span class="tag">Astrophysics</span>
+              <span class="tag">Science</span>
             </div>
           </a>
         </div>
       </div>
     </section>
 
-    <section id="stack">
+    <section id="systems">
       <div class="container">
-        <h2 class="section-title">Tech Stack</h2>
+        <h2 class="section-title">Systems Stack</h2>
+
         <p class="section-copy">
-          Tools and technologies I enjoy using to ship polished, maintainable products.
+          Tools and domains I use to connect engineering rigor with software,
+          automation, simulation, and scientific systems.
         </p>
 
         <div class="grid">
           <div class="card">
-            <h3>Frontend</h3>
-            <p>HTML, CSS, JavaScript, React, Next.js, Tailwind CSS.</p>
+            <div class="meta">Payload</div>
+            <h3>Software & Automation</h3>
+            <p>
+              Python, JavaScript, HTML, SQL, Java, C, C++, C#, LabVIEW,
+              APIs, Streamlit, databases, and data pipelines.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">APIs</span>
+              <span class="tag">Data</span>
+            </div>
           </div>
 
           <div class="card">
-            <h3>Backend</h3>
-            <p>Node.js, APIs, databases, authentication, and cloud deployments.</p>
+            <div class="meta">Bus</div>
+            <h3>Space Engineering</h3>
+            <p>
+              Spacecraft systems, mission operations, orbital mechanics,
+              telemetry, telecommand, embedded systems, and space logistics.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Spacecraft</span>
+              <span class="tag">Operations</span>
+              <span class="tag">Embedded</span>
+            </div>
           </div>
 
           <div class="card">
-            <h3>Workflow</h3>
-            <p>GitHub, CI/CD, Figma, testing, documentation, and automation.</p>
+            <div class="meta">Ground Segment</div>
+            <h3>Digital Engineering</h3>
+            <p>
+              MBSE, Asset Administration Shell, semantic modeling, traceability,
+              interoperability, digital twins, and Industry 4.0 systems.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">MBSE</span>
+              <span class="tag">AAS</span>
+              <span class="tag">Digital Twins</span>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission-log">
+      <div class="container">
+        <h2 class="section-title">Experience Log</h2>
+
+        <p class="section-copy">
+          My path across astronomy, robotics, spacecraft systems,
+          digital twins, and aerospace engineering.
+        </p>
+
+        <div class="mission-log">
+          <div class="log-entry">
+            <div class="log-date">2025 — Present</div>
+            <div>
+              <h3>Astronomical Instrumentation</h3>
+              <p>
+                Doctoral work in robotics, control, intelligent systems, and astrophysics,
+                with focus on robotic systems for astronomy and scientific instrumentation.
+              </p>
+            </div>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-date">2024 — 2025</div>
+            <div>
+              <h3>Digital Twins & Space Systems Engineering</h3>
+              <p>
+                Space-sector digital twin, semantic data, API, traceability,
+                interoperability, and MBSE-oriented engineering workflows.
+              </p>
+            </div>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-date">2023 — 2024</div>
+            <div>
+              <h3>Space Technologies</h3>
+              <p>
+                Work across on-board computers, telemetry, telecommand,
+                mission operations support, and flight software interfaces.
+              </p>
+            </div>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-date">2015 — 2022</div>
+            <div>
+              <h3>Aerospace & Instrumentation</h3>
+              <p>
+                Experience across aircraft systems, nondestructive testing,
+                metrology, calibration, CanSat electronics, telemetry, and ground control.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="coordinates">
+      <div class="container">
+        <h2 class="section-title">Research Coordinates</h2>
+
+        <p class="section-copy">
+          Find my professional, research, code, and identity links across the web.
+        </p>
+
+        <div class="coordinates">
+          <a class="card coordinate-card" href="https://orcid.org/0009-0001-4773-3354" target="_blank" rel="noopener noreferrer">
+            <small>ORCID</small>
+            <h3>Research ID</h3>
+            <span>0009-0001-4773-3354</span>
+          </a>
+
+          <a class="card coordinate-card" href="https://sifa.id/p/oliverpsz.eurosky.social" target="_blank" rel="noopener noreferrer">
+            <small>Sifa ID</small>
+            <h3>Bluesky ID</h3>
+            <span>oliverpsz.eurosky.social</span>
+          </a>
+
+          <a class="card coordinate-card" href="https://people.epfl.ch/oliver.pinedasuarez?lang=en" target="_blank" rel="noopener noreferrer">
+            <small>EPFL</small>
+            <h3>Academic Profile</h3>
+            <span>Robotics PhD · Laboratory of Astrophysics</span>
+          </a>
+
+          <a class="card coordinate-card" href="https://www.linkedin.com/in/oliver-pineda-suarez" target="_blank" rel="noopener noreferrer">
+            <small>LinkedIn</small>
+            <h3>Professional Network</h3>
+            <span>Experience, roles, and connections</span>
+          </a>
         </div>
       </div>
     </section>
@@ -432,19 +1121,20 @@
     <section id="contact">
       <div class="container">
         <div class="contact">
-          <h2 class="section-title">Let’s build something sharp.</h2>
+
           <p>
-            Have a project, collaboration, or opportunity in mind? Reach out and let’s talk.
+            Have a collaboration, research idea, space systems project,
+            robotics challenge, or engineering opportunity in mind?
+            Send a signal and let’s connect.
           </p>
 
           <div class="buttons" style="justify-content: center;">
-            <a class="btn primary" href="mailto:oliver.pineda@outlook.com">Email Me</a>
-            <a class="btn" href="https://www.linkedin.com/in/oliver-pineda-suarez" target="_blank">
-              LinkedIn
-            <a class="btn" href="https://orcid.org/my-orcid?orcid=0009-0001-4773-3354" target="_blank">
-              ORCID
-            <a class="btn" href="https://sifa.id/p/oliverpsz.eurosky.social" target="_blank">
-              Sifa ID
+            <a class="btn primary" href="mailto:oliver.pineda@outlook.com">
+              Email Me
+            </a>
+
+            <a class="btn" href="Oliver_Pineda_Suarez_CV.pdf" download>
+              Download CV
             </a>
           </div>
         </div>
