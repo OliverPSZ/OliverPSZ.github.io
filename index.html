@@ -299,6 +299,7 @@
     .orbit-wrap {
       position: relative;
       z-index: 1;
+      margin-bottom: 1rem;
     }
 
     .orbit-wrap::before {
@@ -307,7 +308,7 @@
       width: 86%;
       aspect-ratio: 1;
       left: 7%;
-      top: 4%;
+      top: 0;
       border: 1px solid rgba(34, 211, 238, 0.34);
       border-radius: 50%;
       transform: rotate(-20deg);
@@ -321,7 +322,7 @@
       width: 86%;
       aspect-ratio: 1;
       left: 7%;
-      top: 4%;
+      top: 0;
       border-radius: 50%;
       animation: orbit 9s linear infinite;
       z-index: 3;
@@ -378,10 +379,10 @@
     }
 
     .avatar {
-      width: 100%;
+      width: 86%;
       aspect-ratio: 1;
-      border-radius: 24px;
-      margin-bottom: 1rem;
+      margin: 0 auto;
+      border-radius: 50%;
       background:
         linear-gradient(135deg, rgba(3, 6, 17, 0.1), rgba(34, 211, 238, 0.12)),
         url("https://github.com/OliverPSZ.png") center/cover no-repeat;
@@ -435,87 +436,6 @@
       font-size: 0.95rem;
       position: relative;
       z-index: 1;
-    }
-
-    .observatory-panel {
-      margin-top: 1.3rem;
-      padding: 0.75rem;
-      border: 1px solid rgba(170, 215, 255, 0.14);
-      border-radius: 20px;
-      background:
-        radial-gradient(circle at 75% 28%, rgba(34, 211, 238, 0.16), transparent 30%),
-        radial-gradient(circle at 22% 74%, rgba(124, 58, 237, 0.12), transparent 36%),
-        rgba(255, 255, 255, 0.04);
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    .observatory-panel svg {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .observatory-star {
-      fill: #cffafe;
-      filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.9));
-      animation: twinkle 2.4s ease-in-out infinite;
-    }
-
-    .star-two {
-      animation-delay: 0.7s;
-    }
-
-    .star-three {
-      animation-delay: 1.3s;
-    }
-
-    .star-four {
-      animation-delay: 1.8s;
-    }
-
-    .observatory-beam {
-      animation: sweepSky 5.5s ease-in-out infinite;
-      transform-origin: 210px 62px;
-    }
-
-    .observatory-dome {
-      animation: domeGlow 4s ease-in-out infinite;
-    }
-
-    @keyframes twinkle {
-      0%, 100% {
-        opacity: 0.45;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.35);
-      }
-    }
-
-    @keyframes sweepSky {
-      0%, 100% {
-        opacity: 0.4;
-        transform: rotate(-3deg);
-      }
-
-      50% {
-        opacity: 1;
-        transform: rotate(3deg);
-      }
-    }
-
-    @keyframes domeGlow {
-      0%, 100% {
-        filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.2));
-      }
-
-      50% {
-        filter: drop-shadow(0 0 18px rgba(34, 211, 238, 0.55));
-      }
     }
 
     section {
@@ -851,60 +771,6 @@
             Space technologies engineer focused on robotics, digitalization,
             spacecraft development, and scientific software systems.
           </p>
-
-          <div class="observatory-panel" aria-label="Animated observatory illustration">
-            <svg viewBox="0 0 420 180" role="img">
-              <defs>
-                <linearGradient id="domeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#e0f2fe" />
-                  <stop offset="45%" stop-color="#22d3ee" />
-                  <stop offset="100%" stop-color="#7c3aed" />
-                </linearGradient>
-              </defs>
-
-              <circle class="observatory-star star-one" cx="55" cy="38" r="2.4" />
-              <circle class="observatory-star star-two" cx="355" cy="42" r="2" />
-              <circle class="observatory-star star-three" cx="315" cy="118" r="2.2" />
-              <circle class="observatory-star star-four" cx="105" cy="88" r="1.8" />
-
-              <path
-                class="observatory-beam"
-                d="M210 62 L335 18 L335 92 Z"
-                fill="rgba(34, 211, 238, 0.09)"
-                stroke="rgba(34, 211, 238, 0.16)"
-              />
-
-              <g class="observatory-dome">
-                <path
-                  d="M105 102 C112 52 308 52 315 102 Z"
-                  fill="url(#domeGradient)"
-                  stroke="rgba(207,250,254,0.55)"
-                  stroke-width="2"
-                />
-                <path
-                  d="M202 59 C216 67 222 82 218 102 L186 102 C184 82 189 67 202 59 Z"
-                  fill="rgba(2, 6, 23, 0.72)"
-                  stroke="rgba(207,250,254,0.36)"
-                />
-                <path
-                  d="M110 102 L310 102"
-                  stroke="rgba(207,250,254,0.7)"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                />
-              </g>
-
-              <g class="observatory-base">
-                <rect x="128" y="102" width="164" height="45" rx="8" fill="rgba(207,250,254,0.13)" />
-                <rect x="145" y="112" width="18" height="22" rx="3" fill="rgba(34,211,238,0.28)" />
-                <rect x="180" y="112" width="18" height="22" rx="3" fill="rgba(34,211,238,0.28)" />
-                <rect x="222" y="112" width="18" height="22" rx="3" fill="rgba(34,211,238,0.28)" />
-                <rect x="257" y="112" width="18" height="22" rx="3" fill="rgba(34,211,238,0.28)" />
-                <rect x="112" y="146" width="196" height="12" rx="6" fill="rgba(207,250,254,0.32)" />
-                <rect x="94" y="158" width="232" height="10" rx="5" fill="rgba(124,58,237,0.35)" />
-              </g>
-            </svg>
-          </div>
         </aside>
       </div>
     </section>
@@ -1121,7 +987,6 @@
     <section id="contact">
       <div class="container">
         <div class="contact">
-
           <p>
             Have a collaboration, research idea, space systems project,
             robotics challenge, or engineering opportunity in mind?
