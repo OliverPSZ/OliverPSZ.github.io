@@ -313,7 +313,10 @@
     .profile-card::before {
       content: "";
       position: absolute;
-      inset: -80px;
+
+      /* Oversized so its square edges never enter the visible card while rotating. */
+      inset: -120%;
+
       background: conic-gradient(
         from 180deg,
         transparent,
@@ -322,8 +325,11 @@
         rgba(124, 58, 237, 0.2),
         transparent
       );
+
+      transform-origin: center;
       animation: spin 14s linear infinite;
       z-index: -1;
+      pointer-events: none;
     }
 
     .orbit-wrap {
