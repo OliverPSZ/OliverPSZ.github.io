@@ -40,11 +40,11 @@
       line-height: 1.6;
       min-height: 100vh;
       overflow-x: hidden;
-      background:
-        radial-gradient(circle at 18% 12%, rgba(124, 58, 237, 0.28), transparent 30%),
-        radial-gradient(circle at 82% 8%, rgba(34, 211, 238, 0.22), transparent 28%),
-        radial-gradient(circle at 55% 85%, rgba(96, 165, 250, 0.15), transparent 35%),
-        linear-gradient(180deg, #02040d 0%, #071326 50%, #02030a 100%);
+      position: relative;
+      isolation: isolate;
+
+      /* The image is in the same folder as this HTML file. */
+      background: url("cq5dam.web.1280.1280.png") center / cover no-repeat fixed;
     }
 
     body::before,
@@ -55,26 +55,35 @@
       pointer-events: none;
     }
 
+    /* Dark overlay: affects only the background image. */
     body::before {
-      z-index: -4;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(124, 58, 237, 0.16), transparent 30%),
+        radial-gradient(circle at 82% 8%, rgba(34, 211, 238, 0.13), transparent 28%),
+        radial-gradient(circle at 55% 85%, rgba(96, 165, 250, 0.09), transparent 35%),
+        linear-gradient(180deg, rgba(2, 4, 13, 0.68), rgba(2, 4, 13, 0.84));
+    }
+
+    /* Moving stars: above the dark overlay, below all page content. */
+    body::after {
+      z-index: -1;
       background-image:
-        radial-gradient(circle, rgba(255, 255, 255, 0.9) 1px, transparent 1.7px),
-        radial-gradient(circle, rgba(255, 255, 255, 0.45) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(34, 211, 238, 0.7) 1px, transparent 1.6px);
+        radial-gradient(circle, rgba(255, 255, 255, 0.95) 1px, transparent 1.7px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.55) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(34, 211, 238, 0.85) 1px, transparent 1.6px);
       background-size: 88px 88px, 150px 150px, 240px 240px;
       background-position: 0 0, 40px 70px, 100px 130px;
-      opacity: 0.38;
+      opacity: 0.62;
       animation: driftStars 85s linear infinite;
     }
 
-    body::after {
-      z-index: -3;
-      background:
-        linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
-      width: 140%;
-      height: 140%;
-      transform: translate(-18%, -18%) rotate(-12deg);
-      opacity: 0.44;
+    /* Keep text, cards, buttons, and widgets fully bright. */
+    header,
+    main,
+    footer {
+      position: relative;
+      z-index: 1;
     }
 
     @keyframes driftStars {
@@ -751,18 +760,8 @@
             </div>
 
             <div class="status">
-              <strong>Main Focus</strong>
+              <strong>Research Focus</strong>
               <span>Robotics, Astronomy & Space Systems</span>
-            </div>
-
-            <div class="status">
-              <strong>Highlighted Toolkits</strong>
-              <span>Python · C/C++ · ROS · NASA F' · BaSyx · AGI STK</span>
-            </div>
-
-            <div class="status">
-              <strong>Skills</strong>
-              <span>Automation · Control · Digital Twins · MBSE · ML</span>
             </div>
           </div>
         </aside>
@@ -784,7 +783,8 @@
 
             <div class="tag-row">
               <span class="tag">Robotics</span>
-              <span class="tag">Astronomical Instrumentation</span>
+              <span class="tag">Mechanical Charactrization</span>
+              <span class="tag">Optical Testing</span>
             </div>
           </a>
 
@@ -797,9 +797,10 @@
             </p>
 
             <div class="tag-row">
-              <span class="tag">GitHub</span>
+              <span class="tag">Communications</span>
+              <span class="tag">Simulation</span>
               <span class="tag">Open Source</span>
-              <span class="tag">Tools</span>
+              <span class="tag">Data Handling</span>
             </div>
           </a>
            <a class="card" href="https://scholar.google.com/citations?hl=en&user=Fv1KhL0AAAAJ" target="_blank" rel="noopener noreferrer">
@@ -827,48 +828,30 @@
 
         <div class="grid">
           <div class="card">
-            <div class="meta">Payload</div>
+            <div class="meta">Code</div>
             <h3>Software & Automation</h3>
             <p>
               Python, JavaScript, HTML, SQL, Java, C, C++, C#, LabVIEW,
               APIs, Streamlit, databases, and data pipelines.
             </p>
-
-            <div class="tag-row">
-              <span class="tag">Python</span>
-              <span class="tag">APIs</span>
-              <span class="tag">Data</span>
-            </div>
           </div>
 
           <div class="card">
-            <div class="meta">Bus</div>
+            <div class="meta">Systems</div>
             <h3>Space Engineering</h3>
             <p>
               Spacecraft systems, mission operations, orbital mechanics,
               telemetry, telecommand, embedded systems, and space logistics.
             </p>
-
-            <div class="tag-row">
-              <span class="tag">Spacecraft</span>
-              <span class="tag">Operations</span>
-              <span class="tag">Embedded</span>
-            </div>
           </div>
 
           <div class="card">
-            <div class="meta">Ground Segment</div>
-            <h3>Digital Engineering</h3>
+            <div class="meta">Data</div>
+            <h3>Digitalization</h3>
             <p>
               MBSE, Asset Administration Shell, semantic modeling, traceability,
               interoperability, digital twins, and Industry 4.0 systems.
             </p>
-
-            <div class="tag-row">
-              <span class="tag">MBSE</span>
-              <span class="tag">AAS</span>
-              <span class="tag">Digital Twins</span>
-            </div>
           </div>
         </div>
       </div>
@@ -968,7 +951,7 @@
 
   <footer>
     <div class="container">
-      © 2026 Oliver Pineda Suárez. Built with HTML, CSS, and matcha.
+      © 2026 Oliver Pineda Suárez.
     </div>
   </footer>
 </body>
